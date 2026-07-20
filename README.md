@@ -5,7 +5,8 @@
 </div>
 
 <p align="center">
-    <strong>Connects students with internships that fit where they're trying to grow, not just what's listed first. Universities can see which placements actually lead somewhere.</strong>
+    <strong>Connects students with internships that fit where they're trying to grow, not just what's listed first.</strong>
+    <strong>Universities can see which placements actually lead somewhere.</strong>
 </p>
 
 # Setup & Configuration Guide
