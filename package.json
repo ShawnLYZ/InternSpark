@@ -1,0 +1,22 @@
+{
+  "name": "internspark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "supabase": "^2.106.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.108.1"
+  }
+}

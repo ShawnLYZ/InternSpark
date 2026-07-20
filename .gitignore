@@ -1,0 +1,50 @@
+# --- Secrets (NEVER commit) ---
+API Key Configuration.md
+.env
+.env.*
+*.env
+**/.env
+supabase/.env
+service-role*.txt
+
+# --- Flutter / Dart ---
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+.pub-cache/
+.pub/
+**/doc/api/
+*.iml
+*.ipr
+*.iws
+
+# Generated code (freezed / json_serializable) is committed by convention;
+# uncomment to ignore if you decide otherwise:
+# *.freezed.dart
+# *.g.dart
+
+# --- Node (seed script) ---
+node_modules/
+npm-debug.log*
+
+# --- Supabase ---
+supabase/.branches
+supabase/.temp
+
+# --- IDE / OS ---
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+Agentic Skill-Verification Workflow.md
+InternSpark.md
+PRD Sign-out, student sign-up, and agentic skill-verification onboarding.md
+PRD.md
+PRD_DETAILED.md
+Problem Statement.md
+ROADMAP.md
+deno.lock
+docs/
