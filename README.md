@@ -1,4 +1,14 @@
-# InternSpark — Setup & Configuration Guide
+<div align="center">
+    <img src="packages\core\assets\branding\internspark_icon.png" alt="InternSpark Logo" width="200" height="200"/>
+    <h1>InternSpark</h1>
+    <h3><em>What if internships matched students like dating apps match people?</em></h3>
+</div>
+
+<p align="center">
+    <strong>Connects students with internships that fit where they're trying to grow, not just what's listed first. Universities can see which placements actually lead somewhere.</strong>
+</p>
+
+# Setup & Configuration Guide
 
 InternSpark is a swipe-to-match internship platform with three apps sharing one backend:
 a **mobile app** for students, a **web app** for employers and universities, and a

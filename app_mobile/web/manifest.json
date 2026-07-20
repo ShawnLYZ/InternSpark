@@ -1,11 +1,11 @@
 {
-    "name": "app_mobile",
-    "short_name": "app_mobile",
+    "name": "InternSpark",
+    "short_name": "InternSpark",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#1D6673",
+    "theme_color": "#1D6673",
+    "description": "Swipe into the internship that grows you.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

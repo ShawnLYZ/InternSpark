@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Teal fill sampled from InternSpark_icon.png; backs the adaptive launcher icon. -->
+    <color name="ic_launcher_background">#1D6673</color>
+</resources>

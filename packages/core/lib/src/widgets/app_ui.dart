@@ -8,9 +8,11 @@ import '../design/app_tokens.dart';
 
 // ── Brand mark ─────────────────────────────────────────────────────────────
 
-/// The InternSpark lockup: a gradient spark glyph, optionally with the
-/// wordmark. Gradient derives from the active theme so it reads rose on mobile
-/// and navy→sky on web.
+/// The InternSpark lockup: the brand badge, optionally with the wordmark.
+///
+/// The badge is the shipped app-icon artwork (the same PNG the launcher icons
+/// and favicons are cut from), so every surface shows one identical mark. The
+/// asset is margin-free and square, so it fills a [size]×[size] box exactly.
 class BrandMark extends StatelessWidget {
   const BrandMark({
     super.key,
@@ -19,6 +21,15 @@ class BrandMark extends StatelessWidget {
     this.wordmark = 'InternSpark',
   });
 
+  /// Corner radius baked into the badge artwork, as a fraction of its width.
+  /// The shadow below is drawn to match so it hugs the rounded corners instead
+  /// of tracing a square.
+  static const double _badgeRadius = 0.22;
+
+  /// Teal fill of the badge; the shadow is tinted with it rather than with the
+  /// theme's primary, which differs per skin (rose on mobile, navy on web).
+  static const Color badgeColor = Color(0xFF1D6673);
+
   final double size;
   final bool showWordmark;
   final String wordmark;
@@ -26,19 +37,22 @@ class BrandMark extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final glyph = Container(
-      width: size,
-      height: size,
+    final glyph = DecoratedBox(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [scheme.primary, scheme.tertiary],
-        ),
-        borderRadius: BorderRadius.circular(size * 0.3),
-        boxShadow: AppTokens.shadowSm(scheme.primary),
+        borderRadius: BorderRadius.circular(size * _badgeRadius),
+        boxShadow: AppTokens.shadowSm(badgeColor),
       ),
-      child: Icon(Icons.bolt_rounded, color: Colors.white, size: size * 0.62),
+      child: Image.asset(
+        'assets/branding/internspark_icon.png',
+        package: 'internspark_core',
+        width: size,
+        height: size,
+        filterQuality: FilterQuality.medium,
+        // With the wordmark alongside, the text already announces the brand, so
+        // the badge is decorative; alone, it has to carry the name itself.
+        excludeFromSemantics: showWordmark,
+        semanticLabel: wordmark,
+      ),
     );
     if (!showWordmark) return glyph;
     return Row(

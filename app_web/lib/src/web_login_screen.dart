@@ -115,15 +115,9 @@ class _BrandPanel extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  width: 44,
-                  height: 44,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.16),
-                    borderRadius: BorderRadius.circular(13),
-                  ),
-                  child: const Icon(Icons.bolt_rounded, color: Colors.white, size: 27),
-                ),
+                // Glyph only: the lockup's own wordmark is styled for light
+                // surfaces, so the white one below is kept for this gradient hero.
+                const BrandMark(size: 44, showWordmark: false),
                 const SizedBox(width: AppTokens.space12),
                 Text('InternSpark',
                     style: text.titleLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.w800)),
