@@ -17,6 +17,39 @@
     <img src="https://img.shields.io/badge/Gemini-8E75B2?style=flat&logo=googlegemini&logoColor=white" alt="Gemini"/>
 </p>
 
+---
+
+# 📸 Product Preview
+
+> Real screenshots from the current build.
+
+## Mobile App (for Student)
+<div align="center">
+  <table>
+    <tr>
+      <th>Home</th>
+      <th>Discover</th>
+      <th>Matches</th>
+      <th>Leaderboard</th>
+      <th>Profile</th>
+    </tr>
+    <tr>
+      <td align="center"><img src="assets/Home.png" alt="home" style="width:240px;height:auto;" /></td>
+      <td align="center"><img src="assets/Discover.png" alt="discover" style="width:240px;height:auto;" /></td>
+      <td align="center"><img src="assets/Matches.png" alt="match" style="width:240px;height:auto;" /></td>
+      <td align="center"><img src="assets/Leaderboard.png" alt="leaderboard" style="width:240px;height:auto;" /></td>
+      <td align="center"><img src="assets/Profile.png" alt="profile" style="width:240px;height:auto;" /></td>
+    </tr>
+  </table>
+</div>
+
+## Website (for Employer / University)
+| Login | Employer | University |
+|-----------|-------------------|--------------|
+| ![login](assets/Login.png) | ![employer](assets/Employer.png) | ![university](assets/University.png) |
+
+---
+
 # Setup & Configuration Guide
 
 InternSpark is a swipe-to-match internship platform with three apps sharing one backend:
