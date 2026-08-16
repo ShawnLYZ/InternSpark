@@ -19,6 +19,12 @@
 
 ---
 
+# ✨ What is InternSpark?
+
+InternSpark is a swipe-to-match internship platform: a mobile app for students, who fill in their profile and then swipe left/right on AI-suggested job cards (each showing a company icon or a 60-second "day-in-the-life" simulator video) that match where they want to grow rather than whatever listing ranks first; and a web app for employers and universities, where employers post and edit roles, review applications, run a post-match 48-hour "Sandbox" micro-project instead of a traditional interview, and generate student performance reports for universities, while universities get "ROI" dashboards tracking placement rates and skill-progression-vs-market-demand so they can close curriculum gaps. Supporting features include an AI resume generator tailored to each company, reverse references (interns rating managers and teams), automated academic-credit paperwork sync, a shared employer↔university chat organized per student, and a public "Ghost-Busting" leaderboard of each company's Average Response Time and Ghost Rate % to pressure employers into actually replying.
+
+---
+
 # 📸 Product Preview
 
 > Real screenshots from the current build.
@@ -28,14 +34,16 @@
   <table>
     <tr>
       <th>Home</th>
-      <th>Discover</th>
+      <th>Discover (Swipe Left)</th>
+      <th>Discover (Swipe Right)</th>
       <th>Matches</th>
       <th>Leaderboard</th>
       <th>Profile</th>
     </tr>
     <tr>
       <td align="center"><img src="assets/Home.png" alt="home" style="width:240px;height:auto;" /></td>
-      <td align="center"><img src="assets/Discover.png" alt="discover" style="width:240px;height:auto;" /></td>
+      <td align="center"><img src="assets/Pass.gif" alt="pass" style="width:240px;height:auto;" /></td>
+      <td align="center"><img src="assets/Apply.gif" alt="apply" style="width:240px;height:auto;" /></td>
       <td align="center"><img src="assets/Matches.png" alt="match" style="width:240px;height:auto;" /></td>
       <td align="center"><img src="assets/Leaderboard.png" alt="leaderboard" style="width:240px;height:auto;" /></td>
       <td align="center"><img src="assets/Profile.png" alt="profile" style="width:240px;height:auto;" /></td>
@@ -52,7 +60,7 @@
 
 # Setup & Configuration Guide
 
-InternSpark is a swipe-to-match internship platform with three apps sharing one backend:
+InternSpark consists of three apps sharing one backend:
 a **mobile app** for students, a **web app** for employers and universities, and a
 **Supabase** backend (database + AI). None of these run against real data out of the box —
 this repo intentionally ships with **no real API keys or URLs** in it. This guide walks you,
@@ -403,3 +411,17 @@ Once an app is running, sign in with one of the seeded demo accounts from §3.4 
 - If you ever suspect a key has leaked (e.g. pasted into a tracked file and pushed to GitHub),
   regenerate it immediately from the Supabase dashboard (Project Settings → API → "Reset" next
   to the key) or Google AI Studio, rather than trying to scrub git history after the fact.
+
+---
+
+# 🏆 Hackathon Achievements
+
+**One of 84 shortlisted projects** at **Talentbank Tech Hackathon 2026**
+
+<p align="center">
+  <img src=assets/Achievement_1.png alt="achievement">
+</p>
+
+<p align="center">
+  <img src=assets/Achievement_2.png alt="achievement">
+</p>
