@@ -58,6 +58,66 @@ InternSpark is a swipe-to-match internship platform: a mobile app for students, 
 
 ---
 
+# 🏗️ System Architecture
+
+```mermaid
+flowchart TB
+    subgraph Client Layer
+        A["📱 Flutter Mobile App — app_mobile<br/>students: swipe deck, agentic verification wizard,<br/>sandbox, reviews, ghost leaderboard"]
+        B["🖥 Flutter Web App — app_web<br/>employers: jobs, applicants, sandbox review, reports<br/>universities: ROI dashboard, credit queue, chat"]
+        K["📦 packages/core — shared Dart<br/>repositories · deckScore rerank · resume/report/credit PDF<br/>Riverpod providers · AiClient seam"]
+    end
+
+    subgraph "Supabase (hosted project)"
+        D["🔐 Supabase Auth<br/>email + password"]
+        T["🔔 on_auth_user_created trigger<br/>seeds profiles row + role"]
+        E["🐘 Postgres 17 + RLS + pgvector<br/>profiles, jobs, applications, internships, reviews,<br/>reports, chat, credit_requests, sandbox, certifications"]
+        R["⚡ SECURITY DEFINER RPCs<br/>deck_candidates, swipe_job, employer_swipe,<br/>make_offer, accept_offer, leaderboard,<br/>curriculum_gap, file_report, approve_credit"]
+        X["🚦 enforce_application_transition<br/>BEFORE UPDATE — only legal status moves"]
+        F["🪣 Storage<br/>resumes · documents · sandbox-files (private)<br/>shadow-videos (public)"]
+        P["📡 Realtime<br/>chat_messages stream"]
+        G["⚙️ Edge Function: ai — verify_jwt<br/>embed, resume, report_draft, credit_map,<br/>sandbox_gen/assess, verification_start/advance"]
+        S["🧮 Supabase.ai gte-small<br/>384-d embeddings, in-runtime"]
+        C["💾 ai_cache + ai_budget<br/>SHA-256 cache key · daily token cap → templated fallback"]
+    end
+
+    subgraph External APIs
+        H["🧠 Gemini API<br/>flash + pro · JSON schema · certificate vision"]
+        W["🔎 Google Search grounding<br/>university curriculum discovery"]
+    end
+
+    A --> K
+    B --> K
+
+    K -- "sign in / sign up" --> D
+    D -.-> T
+    T -- "insert profile" --> E
+
+    K -- "RLS-scoped reads / own rows only" --> E
+    K -- "rpc: swipe, hire loop, dashboards" --> R
+    R -- "owner-checked writes, RLS bypassed" --> E
+    R -. "candidate rows + cosine_sim<br/>final rerank runs in core deckScore" .-> K
+    E --> X
+
+    K -- "upload resume / report / credit PDFs,<br/>certificates, day-in-the-life clips" --> F
+    F -. "public URL for clips" .-> A
+    K -- "functions.invoke ai" --> G
+
+    E -- "postgres_changes" --> P
+    P -- "live employer / university thread" --> B
+
+    G --> S
+    S -. "vector returned; core writes jobs.embedding<br/>and student_profiles.growth_embedding" .-> K
+    G -- "generate · vision · grounded lookup" --> H
+    H --> W
+    G -- "downloads certificate as service role" --> F
+    G -- "service-role-only writes:<br/>student_skills, programs, verification_sessions" --> E
+    G <--> C
+    C -. "lives in Postgres" .-> E
+```
+
+---
+
 # Setup & Configuration Guide
 
 InternSpark consists of three apps sharing one backend:
